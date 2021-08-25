@@ -1,0 +1,28 @@
+<mat-toolbar class="list-filter-toolbar">
+  <mat-toolbar-row fxFlex fxFill>
+    <span class="list-title">Kërko</span>
+    <form action="" class="list-filter-form" [formGroup]="productFilterForm" (ngSubmit)="searchService()" >
+      <div [fxLayout]="'row wrap'" [fxLayout.xs]="'column'" [fxLayoutAlign]="'start center'"  fxLayoutGap="10px">
+        <div [fxLayout]="'row wrap'" fxLayoutAlign="start center" fxLayoutGap="20px" >
+          <mat-form-field>
+            <mat-label>Emri</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+
+          <button mat-stroked-button type="submit">
+            <mat-icon>search</mat-icon>
+            Kërko
+          </button>
+          <button class="clean-button" mat-stroked-button (click)="clearServiceFilters()">
+            <mat-icon>cached</mat-icon>
+            Pastro
+          </button>
+        </div>
+
+      </div>
+
+    </form>
+
+
+  </mat-toolbar-row>
+</mat-toolbar>

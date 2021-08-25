@@ -25,7 +25,7 @@ export class AuthService {
 
   private currentToken: Observable<Token>;
   private httpWithoutInterceptor;
-  nextWeek: Date = new Date();
+  today: Date = new Date();
 
   constructor(
     private http: HttpClient,
@@ -62,9 +62,16 @@ export class AuthService {
 
 
   setTokenToCookies(token: Token) {
-    this.cookieService.set(this.ACCESS_TOKEN, token.access, this.nextWeek, '/', '', false, 'Strict');
-    this.cookieService.set(this.REFRESH_TOKEN, token.refresh, this.nextWeek, '/', '', false, 'Strict');
+    const nextYear = new Date();
+    nextYear.setFullYear(this.today.getFullYear() + 1);
+    this.cookieService.set(this.ACCESS_TOKEN, token.access, nextYear, '/', '', false, 'Strict');
+    this.cookieService.set(this.REFRESH_TOKEN, token.refresh, nextYear, '/', '', false, 'Strict');
+  }
 
+
+
+  checkIfHasToken(){
+    return this.cookieService.get(this.ACCESS_TOKEN) !== "";
   }
 
   public logout() {
