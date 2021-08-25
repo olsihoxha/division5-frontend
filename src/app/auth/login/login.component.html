@@ -1,0 +1,41 @@
+<div class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="login-container">
+      <div class="company-name-login">
+        <img style="width: 170px; height: 30%" alt="" src="../../../assets/images/division5-logo.png">
+      </div>
+      <div class="login-body">
+        <div class="login-forms">
+          <div>
+            <div class="input-icon">
+             <span class="material-icons">email</span>
+            </div>
+            <mat-form-field class="input-form">
+              <input matInput class="input-form-email" placeholder="Email" formControlName="email">
+            </mat-form-field>
+          </div>
+          <div>
+            <div class="input-icon">
+              <span class="material-icons">vpn_key</span>
+            </div>
+            <mat-form-field class="input-form">
+              <input matInput type="password" class="input-form-password" placeholder="Fjalëkalim" formControlName="password">
+            </mat-form-field>
+          </div>
+<!--          <span class="pointer" style=" float:right; font-style: italic;" (click)="resetPassword()">Keni harruar fjalëkalimin?</span>-->
+        </div>
+        <div class="login-button">
+          <button mat-button type="submit" [class.spinner]="loading">Identifikohu</button>
+        </div>
+        <div style="padding-left: 30px" fxLayout="column wrap" fxLayout.xs="column" fxLayoutGap="3px">
+          <span>Nuk keni një llogari?</span>
+          <span class="pointer" style=" float:right; font-style: italic;" (click)="registerAsExpert()">Regjistrohu si ekspert</span>
+          <span class="pointer" style=" float:right; font-style: italic;" (click)="registerAsCustomer()">Regjistrohu si klient</span>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <h3 class="it-works-link"><a href="https://it-works.io/" target="_blank">DIVISION 5</a></h3>
+</div>
+
