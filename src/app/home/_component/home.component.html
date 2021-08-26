@@ -1,10 +1,9 @@
 <mat-toolbar class="list-filter-toolbar">
   <mat-toolbar-row fxFlex fxFill>
-    <span class="list-title">Kërko</span>
-    <form action="" class="list-filter-form" [formGroup]="productFilterForm" (ngSubmit)="searchService()" >
+    <form action="" class="list-filter-form" [formGroup]="productFilterForm" (ngSubmit)="searchProducts()" >
       <div [fxLayout]="'row wrap'" [fxLayout.xs]="'column'" [fxLayoutAlign]="'start center'"  fxLayoutGap="10px">
         <div [fxLayout]="'row wrap'" fxLayoutAlign="start center" fxLayoutGap="20px" >
-          <mat-form-field>
+          <mat-form-field fxFlex>
             <mat-label>Emri</mat-label>
             <input matInput formControlName="name">
           </mat-form-field>
@@ -25,4 +24,64 @@
 
 
   </mat-toolbar-row>
+
 </mat-toolbar>
+
+
+
+<div class="data-table">
+<!--  <mat-progress-bar *ngIf="this.filteredListProgressBar" mode="indeterminate"></mat-progress-bar>-->
+  <table mat-table [dataSource]="productList" class="data-table" matSort
+         matSortDisableClear #sortService="matSort"
+         matSortDirection="desc">
+    <!-- Name Column-->
+
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Imazhi</th>
+      <td mat-cell *matCellDef="let row">
+        <!--          <a (click)="showDetails(row.id)">{{row.name}}</a>-->
+        <img src="{{row.image}}" alt="image">
+      </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Titulli</th>
+      <td mat-cell *matCellDef="let row">
+        <!--          <a (click)="showDetails(row.id)">{{row.name}}</a>-->
+        {{row.title}}
+      </td>
+    </ng-container>
+
+    <!-- Date created Column -->
+    <ng-container matColumnDef="current_price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cmimi</th>
+      <td mat-cell *matCellDef="let row">{{row.prices.current_price}}</td>
+    </ng-container>
+
+    <!-- Timespan Column -->
+    <ng-container matColumnDef="stars">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vleresimi</th>
+      <td mat-cell *matCellDef="let row">{{row.reviews.stars}}</td>
+    </ng-container>
+
+<!--    &lt;!&ndash;Update Button&ndash;&gt;-->
+<!--    <ng-container matColumnDef="update">-->
+<!--      <th mat-header-cell *matHeaderCellDef style="text-align: center">Përditëso</th>-->
+<!--      <td mat-cell *matCellDef="let row" style="text-align: center">-->
+<!--        <button type="button" mat-icon-button class="update-btn-table" (click)="updateService(row)"-->
+<!--                *ngxPermissionsOnly="PERMISSIONS.CHANGE_SERVICE">-->
+<!--          <mat-icon class="edit-button">edit</mat-icon>-->
+<!--        </button>-->
+<!--      </td>-->
+<!--    </ng-container>-->
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="serviceDisplayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: serviceDisplayedColumns;"></tr>
+  </table>
+</div>
+<mat-paginator [length]="serviceResultsLength" [pageSize]="servicePageSize" #paginatorService></mat-paginator>

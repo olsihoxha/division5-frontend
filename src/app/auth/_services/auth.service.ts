@@ -85,6 +85,10 @@ export class AuthService {
     };
   }
 
+  public getCurrentTokenValue(): any {
+    return this.cookieService.getAll();
+  }
+
 
 
 
