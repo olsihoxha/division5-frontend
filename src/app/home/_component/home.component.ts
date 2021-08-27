@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   productFilterForm: FormGroup;
   productList: Product[];
   serviceResultsLength = 0;
-  servicePageSize = 22;
+  servicePageSize = 10;
   @ViewChild('paginatorService', {static: true}) servicePaginator: MatPaginator;
   @ViewChild('sortService', {static: true}) serviceSort: MatSort;
 
@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
     this.productService.getProducts(this.servicePaginator, this.serviceSort, this.productFilterForm).subscribe(
       data => {
         this.productList = data['results'];
-        this.serviceResultsLength = data['results'].length;
+        this.serviceResultsLength = data['count'];
+        this.loaderService.hide();
       }
     );
   }

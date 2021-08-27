@@ -14,7 +14,7 @@ export class ProductsService {
   constructor(protected http: HttpClient, protected globalService: GlobalService) { }
 
   getProducts(page: MatPaginator, sort: MatSort, filter: any): Observable<Product[]> {
-    const ENDPOINT_URL = 'get-products/';
+    const ENDPOINT_URL = 'get-products/ours/';
     return this.globalService.getObjects(page, sort, filter, ENDPOINT_URL);
   }
 

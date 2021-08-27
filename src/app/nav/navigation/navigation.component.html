@@ -1,0 +1,21 @@
+<mat-sidenav-container style="height: 100%">
+  <mat-sidenav #sidenav mode="side" opened style="width: 15%; background:#333F42; height: 100%;">
+    <div style="display: flex; justify-content: center; margin-top: 30px; width: 100%">
+    <img src="assets/images/division5-logo.png" style="width: 80%; margin: auto">
+    </div>
+    <div class="horizontal-line"></div>
+    <div fxLayout="column wrap" fxLayoutGap="20px">
+      <h5 class="sign-out-btn"> Sign Out </h5>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="nav-item"  *ngFor="let row of navigationItems" [ngClass]="{'selected-menu': row.isSelected}" (click)="changeContent(row)">
+      <mat-icon>{{row['icon']}}</mat-icon>
+      <h3>{{row['title']}}</h3>
+    </div>
+
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

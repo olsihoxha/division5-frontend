@@ -22,6 +22,8 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {AuthInterceptor} from "./auth/auth-interceptor/auth.interceptor";
 import { LoaderComponent } from './common/loader/loader/loader.component';
+import { NavigationComponent } from './nav/navigation/navigation.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 @NgModule({
@@ -29,27 +31,29 @@ import { LoaderComponent } from './common/loader/loader/loader.component';
     AppComponent,
     HomeComponent,
     LoaderComponent,
+    NavigationComponent,
   ],
-  imports: [
-    BrowserModule,
-    NoopAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    FlexLayoutModule,
-    MatProgressBarModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatSortModule
-  ],
+    imports: [
+        BrowserModule,
+        NoopAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        FlexLayoutModule,
+        MatProgressBarModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatSortModule,
+        MatSidenavModule
+    ],
   providers: [
     HttpClient,
     DatePipe,
