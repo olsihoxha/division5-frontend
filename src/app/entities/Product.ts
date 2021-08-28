@@ -1,7 +1,8 @@
-export class Product{
-  asin:string;
-  title: string;
-  image: string;
-  prices: string;
-  reviews:number;
+export class Product {
+    is_saved: boolean;
+    asin: string;
+    title: string;
+    image: string;
+    prices: string;
+    reviews: number;
 }

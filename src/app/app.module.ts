@@ -11,7 +11,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HomeComponent } from './home/_component/home.component';
+import { HomeComponent } from './home/_component/home/home.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
@@ -24,6 +24,10 @@ import {AuthInterceptor} from "./auth/auth-interceptor/auth.interceptor";
 import { LoaderComponent } from './common/loader/loader/loader.component';
 import { NavigationComponent } from './nav/navigation/navigation.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { ProfileComponent } from './profile/_component/profile/profile.component';
+import { DetailsComponent } from './home/_component/details/details.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {LoaderInterceptor} from "./loader/loader.interceptor";
 
 
 @NgModule({
@@ -32,33 +36,37 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     HomeComponent,
     LoaderComponent,
     NavigationComponent,
+    ProfileComponent,
+    DetailsComponent,
   ],
-    imports: [
-        BrowserModule,
-        NoopAnimationsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatDialogModule,
-        MatSnackBarModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        FlexLayoutModule,
-        MatProgressBarModule,
-        MatPaginatorModule,
-        MatTableModule,
-        MatSortModule,
-        MatSidenavModule
-    ],
+  imports: [
+    BrowserModule,
+    NoopAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatSidenavModule,
+    MatSlideToggleModule
+  ],
   providers: [
     HttpClient,
     DatePipe,
     HttpClientModule,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "../../auth/_services/auth.service";
 
 @Component({
   selector: 'app-navigation',
@@ -7,6 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+
+  isSignedIn = false;
 
 
   navigationItems = [
@@ -25,10 +28,12 @@ export class NavigationComponent implements OnInit {
   ];
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.isSignedIn = this.authService.checkIfHasToken();
   }
 
   changeContent(row) {
@@ -36,8 +41,16 @@ export class NavigationComponent implements OnInit {
       r.isSelected = false;
     }
     row['isSelected'] = true;
-    this.router.navigateByUrl(row['link']);
+    this.router.navigate([row['link']]);
   }
+
+
+  signOut() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+    this.isSignedIn = false;
+  }
+
 
 
 }

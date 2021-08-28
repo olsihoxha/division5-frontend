@@ -4,7 +4,6 @@ import {map} from 'rxjs/operators';
 import {HttpBackend, HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormBuilder} from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
-// import {NgxPermissionsService, NgxRolesService} from 'ngx-permissions';
 import {AUTH_ENDPOINTS, Token} from "../../division5/endpoints";
 
 

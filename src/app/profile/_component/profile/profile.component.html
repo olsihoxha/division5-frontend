@@ -1,0 +1,72 @@
+<div fxLayout="column wrap" fxFlex>
+  <h1 class="profile-head">Edit Your Profile</h1>
+  <form [formGroup]="changeUserDataFormGroup" (submit)="changeData()">
+    <div fxLayout="column wrap" fxFlex fxLayoutGap="20px" fxFlexAlign="center center">
+
+      <div fxLayout="row wrap" fxFlex fxLayoutGap="20px" fxFlexAlign="center">
+
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="Emri" formControlName="first_name">
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="Mbiemri" formControlName="last_name">
+        </mat-form-field>
+
+      </div>
+
+
+      <div fxLayout="row wrap" fxFlex fxLayoutGap="20px" fxFlexAlign="center">
+
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="Datelindja" formControlName="birthdate">
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="Cel." formControlName="phone_number">
+        </mat-form-field>
+
+      </div>
+
+
+      <div fxLayout="row wrap" fxFlex fxLayoutGap="20px" fxFlexAlign="center">
+
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="Addresa" formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="Pseudonimi" formControlName="nickname">
+        </mat-form-field>
+
+      </div>
+
+
+
+      <div fxLayout="column wrap" fxFlex fxLayoutGap="20px" fxFlexAlign="center">
+
+
+        <h4 style="font-weight: bold">*Vendosni fjalekalimin per te bere ndryshimet</h4>
+
+        <mat-form-field class="input-form">
+          <input matInput type="text" fxFlex placeholder="E-mail" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="input-form">
+          <input matInput type="password" fxFlex placeholder="Password" formControlName="password">
+        </mat-form-field>
+
+      </div>
+
+
+      <div fxLayout="row wrap" fxFlex fxLayoutGap="20px" fxFlexAlign="center">
+      <button style="background: #B7950B; color: white; width: 200px"  mat-button type="submit">Ruaj</button>
+      </div>
+    </div>
+
+
+  </form>
+</div>

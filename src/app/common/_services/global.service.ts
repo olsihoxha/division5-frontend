@@ -33,11 +33,11 @@ function buildQueryString(paginator: MatPaginator, sort: MatSort, filter: FormGr
     queryString.push(`page=${page}`);
   }
   if (page_size) {
-    queryString.push(`page_size=${page_size}`);
+    queryString.push(`offset=${(page-1)*page_size}`);
   }
 
   if (filter.valid && filter.value['name'] !== null) {
-      queryString.push(`query=${filter.value['name']}`);
+      queryString.push(`title=${filter.value['name']}`);
   }
 
   if (queryString.length > 0) {

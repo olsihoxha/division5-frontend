@@ -8,11 +8,15 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { SignUpComponent } from './signup/_component/sign-up/sign-up.component';
+import {MatButtonModule} from "@angular/material/button";
+import {FlexModule} from "@angular/flex-layout";
 
 
 @NgModule({
   declarations: [
     LoginComponent,
+    SignUpComponent,
     ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatStepperModule,
     MatSelectModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    FlexModule
   ]
 })
 export class AuthModule { }

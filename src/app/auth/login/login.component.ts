@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../_services/auth.service";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {first} from "rxjs/operators";
+import {SignUpComponent} from "../signup/_component/sign-up/sign-up.component";
+import {NavigationComponent} from "../../nav/navigation/navigation.component";
 
 @Component({
   selector: 'app-login',
@@ -25,7 +27,8 @@ export class LoginComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               public dialog: MatDialog,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private navComponent: NavigationComponent) {
   }
 
   ngOnInit() {
@@ -45,6 +48,7 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(response => {
             this.router.navigate([this.returnUrl]);
+            this.navComponent.isSignedIn = true;
           },
           (error) => {
             this.loading = false;
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
             this.loginForm.controls['email'].setErrors({});
             this.loginForm.controls['password'].setErrors({});
           });
-    }else{
+    } else {
       this.loading = false;
     }
 
@@ -63,22 +67,13 @@ export class LoginComponent implements OnInit {
     this.loginForm.controls['password'].setErrors(null);
   }
 
-  // resetPassword(){
-  //   const dialogRef = this.dialog.open(ResetPasswordDialogComponent, {
-  //     width: '350px',
-  //     data: {passwordResetEmail: this.passwordResetEmail}
-  //   });
-  //
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     this.passwordResetEmail = result;
-  //   });
-  // }
 
-  registerAsExpert(){
-    this.router.navigate(['/login/expert-register']);
-  }
-  registerAsCustomer(){
-    this.router.navigate(['/login/customer-register']);
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(SignUpComponent, {
+      width: '500px',
+      data: {}
+    });
   }
 
-}
+  }
