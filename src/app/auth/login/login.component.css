@@ -135,14 +135,14 @@ input:-webkit-autofill:focus {
   padding: 8px 0;
 }
 
-.login .it-works-link {
+.login .division-link {
   margin: 20px 0;
   font-size: 1em;
   line-height: normal;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.login .it-works-link a {
+.login .division-link a {
   text-decoration: none;
   color: rgba(51, 63, 66, 0.4);
   cursor: pointer;
@@ -211,7 +211,7 @@ input:-webkit-autofill:focus {
     padding: 0 15px;
   }
 
-  .login .it-works-link a {
+  .login .division-link a {
     color: rgb(125, 133, 160);
   }
 }
